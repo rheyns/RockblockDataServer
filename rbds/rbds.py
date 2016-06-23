@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask
+from flask import render_template
 import requests
 
 app = Flask(__name__, static_url_path='')
@@ -18,7 +19,7 @@ def messages():
 @app.route('/', methods=['GET'])
 def homepage():
   """Serve up a default homepage"""
-  return 'Hello World, and Alex says hi too'
+  return render_template('index.html')
 
 def main():
   app.run(host='0.0.0.0', port=5050)
